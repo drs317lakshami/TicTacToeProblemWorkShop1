@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class TicTacToe {
     char gameBoard[] = null;
-    char playerLetter = '\0';
-    char computerLetter = '\0';
+    char playerLetter = '/0';
+    char computerLetter = '/0';
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("Welcome to the Tic Tac Toe Game Program in Java!");
@@ -14,6 +14,7 @@ public class TicTacToe {
         gameObj.choosePlayerLetter();
         gameObj.showBoard();
         gameObj.playerPlays();
+        gameObj.showBoard();
     }
     void initialiseGame(){
         gameBoard = new char[10];
@@ -21,7 +22,7 @@ public class TicTacToe {
             gameBoard[index] = ' ';
     }
     void choosePlayerLetter() {
-        System.out.println("\nPlayer please choose your play Letter.");
+        System.out.println("/nPlayer please choose your play Letter.");
         System.out.println("Enter 'X' to play 'X' on your turn.");
         System.out.println("Or Enter 'O' to play 'O' on your turn.");
         char playerInput = sc.next().charAt(0);
@@ -35,10 +36,10 @@ public class TicTacToe {
             computerLetter = 'o';
         }
         else
-            System.out.println("\nInvalid Input.\nPlease try again!");
+            System.out.println("/nInvalid Input./nPlease try again!");
     }
     void showBoard() {
-        System.out.println("\nCurrent Board : ");
+        System.out.println("/nCurrent Board : ");
         System.out.println("-------------");
         System.out.println("| "+gameBoard[1]+" | "+gameBoard[2]+" | "+gameBoard[3]+" |");
         System.out.println("-------------");
@@ -48,14 +49,14 @@ public class TicTacToe {
         System.out.println("-------------");
     }
     void playerPlays() {
-        System.out.print("\nEnter an empty cell number [1-9] where do want make your move : ");
+        System.out.print("/nEnter an empty cell number [1-9] where do want make your move : ");
         byte playerCell = sc.nextByte();
         if (playerCell > 9 || playerCell < 1) {
-            System.out.println("\nInvalid selection.\nPlease try again!");
-            //playerPlays();
+            System.out.println("/nInvalid selection./nPlease try again!");
+            playerPlays();
         }
         else if (gameBoard[playerCell] != ' ') {
-            System.out.println("\nThe cell you selected is not empty.\nPlease try again!");
+            System.out.println("/nThe cell you selected is not empty./nPlease try again!");
             playerPlays();
         }
         else
